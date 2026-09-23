@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Larsen Reyes</title>
+<meta name="description" content="Larsen Reyes — Customer Success leader with an application security background.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+--navy: #0b1220;
+--navy-2: #121b2e;
+--teal: #2dd4bf;
+--teal-dim: #14b8a6;
+--teal-soft: rgba(45, 212, 191, 0.12);
+--ink: #1a2233;
+--muted: #5b6478;
+--line: #e6e9f0;
+--bg: #fafbfc;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+color: var(--ink);
+background: var(--bg);
+line-height: 1.6;
+}
+a { color: inherit; }
+.wrap { max-width: 900px; margin: 0 auto; padding: 0 28px; }
+img, svg { display: block; }
+
+/* SCROLL PROGRESS */
+.progress {
+position: fixed; top: 0; left: 0; width: 100%; height: 3px;
+background: transparent; z-index: 1001; pointer-events: none;
+}
+.progress span {
+display: block; height: 100%; width: 100%;
+background: linear-gradient(90deg, var(--teal-dim), var(--teal));
+transform: scaleX(0); transform-origin: left;
+transition: transform 0.08s linear;
+}
+
+/* NAV */
+nav {
+position: sticky; top: 0; z-index: 1000;
+background: rgba(250, 251, 252, 0.85);
+backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+border-bottom: 1px solid var(--line);
+}
+nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+.brand { font-weight: 700; font-size: 17px; letter-spacing: -0.02em; }
+nav ul { list-style: none; display: flex; gap: 28px; }
+nav a {
+position: relative; text-decoration: none; font-size: 14px; font-weight: 500;
+color: var(--muted); transition: color 0.2s; padding: 4px 0;
+}
+nav a::after {
+content: ''; position: absolute; left: 0; bottom: -2px; width: 100%; height: 2px;
+background: var(--teal); transform: scaleX(0); transform-origin: center;
+transition: transform 0.25s ease;
+}
+nav a:hover { color: var(--ink); }
+nav a:hover::after { transform: scaleX(1); }
+nav a.active { color: var(--ink); }
+nav a.active::after { transform: scaleX(1); }
+
+/* HERO */
+header.hero {
+position: relative; overflow: hidden;
+background: linear-gradient(160deg, var(--navy), var(--navy-2) 100%);
+color: #fff; padding: 110px 0 90px;
+}
+header.hero .blob {
+position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.35;
+pointer-events: none;
+}
+header.hero .blob-1 {
+width: 420px; height: 420px; background: var(--teal);
+top: -160px; right: -100px; animation: drift1 16s ease-in-out infinite;
+}
+header.hero .blob-2 {
+width: 320px; height: 320px; background: var(--teal-dim);
+bottom: -140px; left: -80px; animation: drift2 20s ease-in-out infinite;
+}
+@keyframes drift1 {
+0%, 100% { transform: translate(0, 0) scale(1); }
+50% { transform: translate(-40px, 30px) scale(1.1); }
+}
+@keyframes drift2 {
+0%, 100% { transform: translate(0, 0) scale(1); }
+50% { transform: translate(30px, -20px) scale(1.15); }
+}
+header.hero .wrap { position: relative; z-index: 1; }
+.eyebrow {
+color: var(--teal); font-size: 13px; font-weight: 600; letter-spacing: 0.06em;
+text-transform: uppercase; margin-bottom: 16px;
+opacity: 0; animation: fadeUp 0.7s ease forwards;
+}
+header.hero h1 {
+font-size: 48px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 20px;
+opacity: 0; animation: fadeUp 0.7s ease 0.12s forwards;
+}
+header.hero p {
+max-width: 560px; color: rgba(255,255,255,0.75); font-size: 17px; margin-bottom: 32px;
+opacity: 0; animation: fadeUp 0.7s ease 0.24s forwards;
+}
+.hero-buttons {
+display: flex; gap: 12px;
+opacity: 0; animation: fadeUp 0.7s ease 0.36s forwards;
+}
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(16px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.btn {
+display: inline-block; padding: 12px 22px; border-radius: 8px; font-weight: 600;
+font-size: 14.5px; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+border: 1px solid transparent; cursor: pointer;
+}
+.btn-primary { background: var(--teal); color: #06231f; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -8px rgba(45,212,191,0.55); background: var(--teal-dim); }
+.btn-outline { background: transparent; color: #fff; border-color: rgba(255,255,255,0.35); }
+.btn-outline:hover { transform: translateY(-2px); border-color: #fff; background: rgba(255,255,255,0.06); }
+
+/* SECTIONS */
+.section { padding: 84px 0; }
+.section.alt { background: #f3f5f8; }
+.section .eyebrow-dark { color: var(--teal-dim); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 10px; }
+.section h2 { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 36px; }
+.section > .wrap > p { max-width: 640px; color: var(--muted); font-size: 16px; margin-bottom: 16px; }
+
+/* reveal-on-scroll */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.in-view { opacity: 1; transform: translateY(0); }
+.reveal-item { opacity: 0; transform: translateY(18px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.reveal-item.in-view { opacity: 1; transform: translateY(0); }
+
+/* CARD GRID (Off the Clock / Skills) */
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.card {
+position: relative; background: #fff; border: 1px solid var(--line); border-radius: 12px;
+padding: 26px; overflow: hidden;
+transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+.card::before {
+content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+background: linear-gradient(90deg, var(--teal-dim), var(--teal));
+transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease;
+}
+.card:hover { transform: translateY(-5px); box-shadow: 0 18px 32px -18px rgba(15,23,42,0.25); border-color: transparent; }
+.card:hover::before { transform: scaleX(1); }
+.card .icon { font-size: 26px; margin-bottom: 14px; display: inline-block; transition: transform 0.25s ease; }
+.card:hover .icon { transform: scale(1.15) rotate(-4deg); }
+.card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+.card p { color: var(--muted); font-size: 14.5px; }
+
+.tag-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.tag {
+background: var(--teal-soft); color: var(--teal-dim); font-size: 13px; font-weight: 600;
+padding: 6px 12px; border-radius: 999px; transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.tag:hover { background: var(--teal); color: #06231f; transform: translateY(-1px); }
+
+/* TIMELINE */
+.timeline { list-style: none; margin-left: 6px; border-left: 2px solid var(--line); }
+.timeline li { position: relative; padding: 0 0 34px 28px; transition: border-color 0.2s ease; }
+.timeline li:last-child { padding-bottom: 0; }
+.timeline li::before {
+content: ''; position: absolute; left: -7px; top: 4px; width: 12px; height: 12px;
+border-radius: 50%; background: var(--bg); border: 2px solid var(--teal-dim);
+transition: background 0.2s ease, transform 0.2s ease;
+}
+.timeline li:hover::before { background: var(--teal); transform: scale(1.2); }
+.timeline .date { color: var(--muted); font-size: 13.5px; font-weight: 600; margin-bottom: 4px; }
+.timeline .role { font-size: 17px; font-weight: 700; margin-bottom: 2px; }
+.timeline .company { color: var(--teal-dim); font-weight: 600; font-size: 14px; margin-bottom: 10px; }
+.timeline ul { padding-left: 18px; color: var(--muted); font-size: 14.5px; }
+.timeline ul li { padding: 0 0 6px 0; }
+.timeline ul li::before { display: none; }
+
+/* BACKGROUND / EDUCATION */
+.bg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 8px; }
+.bg-item { margin-bottom: 18px; }
+.bg-item h4 { font-size: 15.5px; font-weight: 700; margin-bottom: 2px; }
+.bg-item span { color: var(--muted); font-size: 14px; }
+
+/* CONTACT */
+.section.dark {
+background: linear-gradient(160deg, var(--navy), var(--navy-2) 100%);
+color: #fff; text-align: center;
+}
+.section.dark h2 { font-size: 34px; }
+.section.dark p { color: rgba(255,255,255,0.7); max-width: 480px; margin: 0 auto 28px; }
+.section.dark .btn-primary:hover { box-shadow: 0 14px 30px -10px rgba(45,212,191,0.6); }
+
+footer { text-align: center; padding: 26px 0; color: rgba(255,255,255,0.4); font-size: 13px; background: var(--navy-2); }
+
+@media (max-width: 720px) {
+header.hero { padding: 90px 0 64px; }
+header.hero h1 { font-size: 34px; }
+nav ul { gap: 16px; }
+nav a { font-size: 13px; }
+.grid, .bg-grid { grid-template-columns: 1fr; }
+.section h2 { font-size: 25px; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress"><span id="progressBar"></span></div>
+
+<nav>
+<div class="wrap">
+<div class="brand">Larsen Reyes</div>
+<ul id="navLinks">
+<li><a href="#about" data-section="about">About</a></li>
+<li><a href="#fun" data-section="fun">Off the Clock</a></li>
+<li><a href="#experience" data-section="experience">Experience</a></li>
+<li><a href="#skills" data-section="skills">Skills</a></li>
+<li><a href="#contact" data-section="contact">Contact</a></li>
+</ul>
+</div>
+</nav>
+
+<header class="hero" id="top">
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="wrap">
+<div class="eyebrow">CUSTOMER SUCCESS · AMATEUR GOLFER · CURIOUS ABOUT AI</div>
+<h1>Larsen Reyes</h1>
+<p>I help security teams get real value out of crowdsourced security platforms. Outside of work, you'll usually find me at the range, in the gym, or learning something new about AI.</p>
+<div class="hero-buttons">
+<a href="#about" class="btn btn-primary">More about me</a>
+<a href="#contact" class="btn btn-outline">Get in touch</a>
+</div>
+</div>
+</header>
+
+<section id="about" class="section reveal">
+<div class="wrap">
+<div class="eyebrow-dark">ABOUT</div>
+<h2>A bit about me</h2>
+<p>I've spent the last 12+ years around application security and customer success — most recently as a Senior Manager, Customer Success at Bugcrowd, before that on the vulnerability verification side at WhiteHat Security early in my career. These days I'm mostly on the relationship and account side, but that early exposure to security testing still helps me follow along when conversations get technical.</p>
+<p>I'm currently between roles and open to what's next — Customer Success, security-adjacent, or AI-adjacent positions. Outside of work, my time goes toward the range, the gym, and learning more about AI.</p>
+</div>
+</section>
+
+<section id="fun" class="section alt reveal">
+<div class="wrap">
+<div class="eyebrow-dark">OFF THE CLOCK</div>
+<h2>What I'm actually into</h2>
+<div class="grid">
+<div class="card reveal-item">
+<span class="icon">⛳</span>
+<h3>Golf &amp; Topgolf</h3>
+<p>Not particularly good at it, but I do have a hole-in-one to my name.</p>
+</div>
+<div class="card reveal-item">
+<span class="icon">🎯</span>
+<h3>Shooting sports</h3>
+<p>Pistol and shotgun — clays on the weekends, targets when I'm working on fundamentals.</p>
+</div>
+<div class="card reveal-item">
+<span class="icon">🏋️</span>
+<h3>Lifting</h3>
+<p>Regular at the gym, focused on staying strong and staying consistent.</p>
+</div>
+<div class="card reveal-item">
+<span class="icon">🤖</span>
+<h3>AI, as a curious newbie</h3>
+<p>Still early in the learning curve, but genuinely interested — recently completed Anthropic's Claude Code 101 and Claude Platform 101 certifications.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="experience" class="section reveal">
+<div class="wrap">
+<div class="eyebrow-dark">EXPERIENCE</div>
+<h2>Career history</h2>
+<ul class="timeline">
+<li>
+<div class="date">Feb 2024 – Jun 2026</div>
+<div class="role">Senior Manager, Customer Success</div>
+<div class="company">Bugcrowd</div>
+<ul>
+<li>Led a team of 11, including 4 Customer Engagement Specialists and 7 Customer Engagement Managers</li>
+<li>Provided coverage for the APAC region on an as-needed basis</li>
+<li>Prioritized team development, resulting in multiple internal promotions</li>
+</ul>
+</li>
+<li>
+<div class="date">Feb 2022 – Feb 2024</div>
+<div class="role">Manager, Customer Success</div>
+<div class="company">Bugcrowd</div>
+<ul>
+<li>Managed a team of up to 12–14 Customer Engagement Managers at peak</li>
+<li>Oversaw the full Customer Engagement Manager team solo prior to the addition of a co-manager</li>
+</ul>
+</li>
+<li>
+<div class="date">Aug 2021 – Feb 2022</div>
+<div class="role">Technical Customer Success Manager — Team Lead</div>
+<div class="company">Bugcrowd</div>
+<ul>
+<li>Maintained a personal book of business of approximately 40 accounts while leading the team</li>
+<li>Hired and scaled the team from an initial group of 4</li>
+<li>Managed performance and personnel decisions to sustain team output</li>
+</ul>
+</li>
+<li>
+<div class="date">Mar 2020 – Oct 2021</div>
+<div class="role">Security Solutions Consultant</div>
+<div class="company">Bugcrowd</div>
+<ul>
+<li>Launched client bug bounty programs end-to-end, including scope definition, credential setup, and program brief documentation</li>
+</ul>
+</li>
+<li>
+<div class="date">Aug 2018 – Mar 2020</div>
+<div class="role">Account Manager → Customer Success Manager</div>
+<div class="company">Bugcrowd</div>
+<ul>
+<li>Managed a portfolio of enterprise accounts</li>
+</ul>
+</li>
+<li>
+<div class="date">Jun 2017 – Dec 2017</div>
+<div class="role">Technical Support Lead</div>
+<div class="company">WhiteHat Security</div>
+<ul>
+<li>Conducted interviews for new hires and ensured weekend/holiday staffing coverage</li>
+<li>Handled internal and external support escalations; facilitated 1:1s and improvement plans</li>
+</ul>
+</li>
+<li>
+<div class="date">Oct 2015 – Jun 2017</div>
+<div class="role">Customer Service Engineer</div>
+<div class="company">WhiteHat Security</div>
+<ul>
+<li>Primary support engineer for 3 accounts with combined ARR over $1,000,000</li>
+<li>Documented and tracked bugs in Jira; facilitated weekly case review calls for high-value clients</li>
+</ul>
+</li>
+<li>
+<div class="date">Oct 2013 – Oct 2015</div>
+<div class="role">Vulnerability Verification Specialist</div>
+<div class="company">WhiteHat Security</div>
+<ul>
+<li>Verified 100–200 web application vulnerabilities per day, including OWASP Top 10</li>
+<li>Provided detailed proof-of-concepts and reproduction steps; certified remediation for clients</li>
+</ul>
+</li>
+<li>
+<div class="date">Aug 2010 – Feb 2013</div>
+<div class="role">Customer Service Representative</div>
+<div class="company">Autofusion</div>
+<ul>
+<li>Managed website support and project workflow for automotive dealer clients across design, SEO, and QA teams</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+<section id="skills" class="section alt reveal">
+<div class="wrap">
+<div class="eyebrow-dark">SKILLS</div>
+<h2>What I work with</h2>
+<div class="grid">
+<div class="card reveal-item">
+<h3>Security</h3>
+<div class="tag-group">
+<span class="tag">OWASP Top 10</span>
+<span class="tag">Burp Suite</span>
+<span class="tag">Vulnerability Verification</span>
+<span class="tag">Crowdsourced Security</span>
+</div>
+</div>
+<div class="card reveal-item">
+<h3>Customer Success</h3>
+<div class="tag-group">
+<span class="tag">Account Management</span>
+<span class="tag">Team Leadership</span>
+<span class="tag">Salesforce</span>
+<span class="tag">JIRA</span>
+</div>
+</div>
+<div class="card reveal-item">
+<h3>AI &amp; Tools</h3>
+<div class="tag-group">
+<span class="tag">AI Fluency</span>
+<span class="tag">Claude Code 101</span>
+<span class="tag">Claude Platform 101</span>
+</div>
+</div>
+<div class="card reveal-item">
+<h3>Marketing</h3>
+<div class="tag-group">
+<span class="tag">SEO</span>
+<span class="tag">SEM</span>
+<span class="tag">Google Analytics</span>
+</div>
+</div>
+</div>
+
+<div style="margin-top:56px;">
+<div class="eyebrow-dark">EDUCATION &amp; CERTIFICATIONS</div>
+<h2 style="margin-bottom:20px;">Background</h2>
+<div class="bg-grid">
+<div>
+<div class="bg-item">
+<h4>B.A., Economics</h4>
+<span>UC San Diego · 2005 – 2010</span>
+</div>
+</div>
+<div>
+<div class="bg-item">
+<h4>Claude Platform 101</h4>
+<span>Anthropic · Issued Jul 2026</span>
+</div>
+<div class="bg-item">
+<h4>Claude Code 101</h4>
+<span>Anthropic · Issued Jul 2026</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="contact" class="section dark reveal">
+<div class="wrap">
+<h2>Let's talk</h2>
+<p>Open to Customer Success, security-adjacent, and AI-adjacent roles.</p>
+<a href="https://www.linkedin.com/in/larsenreyes/" target="_blank" rel="noopener" class="btn btn-primary">Connect on LinkedIn</a>
+</div>
+</section>
+
+<footer>© 2026 Larsen Reyes</footer>
+
+<script>
+// Scroll progress bar
+const progressBar = document.getElementById('progressBar');
+function updateProgress() {
+const h = document.documentElement;
+const scrolled = h.scrollTop;
+const max = h.scrollHeight - h.clientHeight;
+const pct = max > 0 ? scrolled / max : 0;
+progressBar.style.transform = 'scaleX(' + pct + ')';
+}
+window.addEventListener('scroll', updateProgress, { passive: true });
+updateProgress();
+
+// Reveal on scroll (staggers children with .reveal-item)
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+entries.forEach((entry) => {
+if (entry.isIntersecting) {
+entry.target.classList.add('in-view');
+const items = entry.target.querySelectorAll('.reveal-item');
+items.forEach((item, i) => {
+item.style.transitionDelay = (i * 90) + 'ms';
+item.classList.add('in-view');
+});
+io.unobserve(entry.target);
+}
+});
+}, { threshold: 0.15 });
+revealEls.forEach((el) => io.observe(el));
+
+// Scrollspy for nav
+const navLinks = document.querySelectorAll('#navLinks a');
+const sections = Array.from(navLinks).map(a => document.getElementById(a.dataset.section)).filter(Boolean);
+const spy = new IntersectionObserver((entries) => {
+entries.forEach((entry) => {
+const link = document.querySelector('#navLinks a[data-section="' + entry.target.id + '"]');
+if (!link) return;
+if (entry.isIntersecting) {
+navLinks.forEach(l => l.classList.remove('active'));
+link.classList.add('active');
+}
+});
+}, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+sections.forEach((s) => spy.observe(s));
+</script>
+
+</body>
+</html>
